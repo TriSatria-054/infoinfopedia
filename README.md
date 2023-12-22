@@ -1,5 +1,5 @@
 # infoinfopedia
-
+https://infoinfopedia.kesug.com/
 Infoinfopedia adalah sebuah sosial media berbasis web yang menggunakan teknologi PHP dan MySQL sebagai fondasinya. Platform ini memberikan pengalaman pengguna yang menarik dan terhubung erat dengan ekosistem Google Authentication.
 Fitur Utama:
 1. Login, Registrasi, Google Authentication, Update Password: Memanfaatkan keamanan dan kenyamanan login menggunakan akun Google, Membuat akun dengan mudah, dan mengubah password untuk keamanan.
