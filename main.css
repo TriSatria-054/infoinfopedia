@@ -1,0 +1,145 @@
+:root {
+    --main-color: #b92b27;
+    --main-color-darker: #941e1a;
+    --white: #ffffff;
+    --dropdown-radius: 50px;
+  }
+
+.border-gray {
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-width: 1px;
+}
+
+.text-gray-dark {
+    color: rgb(117, 115, 115);
+}
+.text-gray-darker {
+    color: rgb(83, 82, 82);
+}
+
+.text-main-color {
+    color: var(--main-color)
+}
+
+.bg-main-color {
+    background-color: var(--main-color)
+}
+
+.border-main-color {
+    border-bottom-style: solid;
+    border-width: 4px;
+    border-color:  var(--main-color);
+}
+
+.bg-second-color {
+    background-color: rgb(233, 233, 233);
+}
+.nav-link svg {
+    width: 45px;
+    height: 45px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.profile {
+    width: 45px;
+    height: 45px;
+    padding: 7px;
+}
+
+.post-profile {
+    width: 55px;
+    height: 55px;
+    padding: 7px;
+}
+
+.nav-link:hover {
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+}
+
+.search-icon {
+    padding-left: 25px;
+    background: url("src/outline_search_black_24dp.png") no-repeat left;
+    background-size: 20px;
+  }
+
+#button1 {
+    border-bottom-left-radius: var(--dropdown-radius);
+    border-top-left-radius: var(--dropdown-radius);
+}
+
+#button1:hover {
+    background-color: var(--main-color-darker);
+}
+
+#button2 {
+    border-bottom-right-radius: var(--dropdown-radius);
+    border-top-right-radius: var(--dropdown-radius);
+    border-left-style: solid;
+    border-left-color: rgb(83, 83, 83);
+    border-width: 1px;
+    color: white;
+}
+
+#left-list {
+    margin-left: 20px;
+}
+
+#left-list a {
+    text-decoration: none;
+    padding: 5px;
+    color: gray;
+    font-size: 13px;
+}
+
+#left-list a:hover {
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+}
+
+#left-list img {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.hover-dark:hover {
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px; 
+}
+
+.left-button {
+    border-bottom-left-radius: var(--dropdown-radius);
+    border-top-left-radius: var(--dropdown-radius);
+}
+
+.right-button {
+    border-bottom-right-radius: var(--dropdown-radius);
+    border-top-right-radius: var(--dropdown-radius);
+}
+
+.post-button-bg {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.post-button:hover {
+    background-color: rgb(238, 238, 238);
+}
+.isi {
+    justify-content: center;
+    align-items: center;
+
+}
+.besar {
+    width: 80%;
+}
+.anu {
+    justify-content: center;
+    align-items: center;
+
+}
+
+
