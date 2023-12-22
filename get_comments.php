@@ -1,37 +1,28 @@
 <?php
+
 session_start();
+
 require 'functions.php';
 
-// Retrieve data from the AJAX request
-$articleId = $_POST['articleId'];
-$commentText = $_POST['commentText'];
-$a = $_SESSION['login_email'];
-$userId = query("SELECT * FROM userinfo WHERE user_email = '$a'")[0]["id"]; // Change this to match your session variable
+$articleId = $_GET['articleId'];
 
-// Check if the comment text is not empty
-if (!empty($commentText)) {
-    // Insert the comment into the database
-    $insertCommentQuery = "INSERT INTO article_comment (article_id, user_id, content) VALUES ('$articleId', '$userId', '$commentText')";
-    $result = pg_query($conn, $insertCommentQuery);
+// Retrieve comments from the database
+$getCommentsQuery = "SELECT DISTINCT article_comment.id, article_comment.user_id, article_comment.content, article_comment.created_at, userinfo.username, userinfo.profile_picture, article.article_comment
+          FROM article_comment
+          INNER JOIN userinfo ON article_comment.user_id = userinfo.id
+          INNER JOIN article ON article_comment.article_id = article.id
+          WHERE article_comment.article_id = '$articleId'";
+$result = pg_query($conn, $getCommentsQuery);
 
-    if ($result) {
-        // Increment the comment count in the article table
-        $updateArticleQuery = "UPDATE article SET article_comment = article_comment + 1 WHERE id = '$articleId'";
-        $updateResult = pg_query($conn, $updateArticleQuery);
+if ($result) {
+    // Fetch the comments as an associative array
+    $comments = pg_fetch_all($result);
 
-        if ($updateResult) {
-            // Return success message or any other response
-            echo "Comment posted successfully";
-        } else {
-            // Handle the error for updating the article comment count
-            echo "Error updating article comment count: " . pg_last_error($conn);
-        }
-    } else {
-        // Return an error message or handle errors accordingly
-        echo "Error posting comment: " . pg_last_error($conn);
-    }
+    // Return the comments as a JSON response
+    echo json_encode($comments);
 } else {
-    // Return a message indicating that the comment text is empty
-    echo "Comment text is empty";
+    // Return an error message or handle errors accordingly
+    echo "Error fetching comments: " . pg_last_error($conn);
 }
+
 ?>
